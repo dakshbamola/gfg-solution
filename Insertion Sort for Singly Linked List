@@ -1,0 +1,29 @@
+Insertion Sort for Singly Linked List
+
+class Solution
+{
+    public:
+    Node* insertionSort(struct Node* head_ref)
+    {
+        //code here
+        if(head_ref == nullptr)
+            return head_ref;
+        
+        Node* dummy = new Node(0);
+        Node* curr = head_ref;
+        Node* prev = dummy;
+        Node* next = nullptr;
+        while(curr!=nullptr){
+            next = curr->next;
+            while(prev->next!=nullptr && prev->next->data<curr->data)
+                prev=prev->next;
+            curr->next = prev->next;
+            prev->next = curr;
+            prev = dummy;
+            curr = next;
+        }
+        return dummy->next;
+        
+    }
+    
+};
