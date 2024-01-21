@@ -1,0 +1,19 @@
+// Minimize Array Score
+
+class Solution {
+  public:
+    int minimizeArrayScore(int n, vector<int> &arr) {
+        // code here
+        int ans=INT_MIN;
+        vector<int> sum(n/2);
+        sort(arr.begin(),arr.end());
+        for(int i=0;i<n/2;i++){
+            sum[i]=arr[i]+arr[n-i-1];
+        }
+        for(int i:sum){
+            if(ans<i)
+                ans=i;
+        }
+        return ans;
+    }
+};
