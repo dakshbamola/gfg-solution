@@ -1,0 +1,14 @@
+// Friend of x
+
+class Solution {
+  public:
+    string isFriend(int n, int x, int y, vector<int> &arr) {
+        // code here
+        for(int i=0;i<n;i++){
+            if(x+arr[i]==y){
+                return "yes";
+            }
+        }
+        return "no";
+    }
+};
