@@ -1,0 +1,42 @@
+// Course Schedule
+
+class Solution
+{
+  public:
+    vector<int> findOrder(int n, int m, vector<vector<int>> prerequisites) 
+    {
+        //code here
+        vector<int> in(n,0);
+        vector<vector<int>> g(n);
+        vector<int> res;
+        queue<int> q;
+        for(int i=0;i<prerequisites.size();i++){
+            g[prerequisites[i][1]].push_back(prerequisites[i][0]);
+            ++in[prerequisites[i][0]];
+        }
+        
+        for(int i=0;i<n;i++){
+            if(in[i]==0){
+                q.push(i);
+                res.push_back(i);
+            }
+        }
+        
+        while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            for(auto child:g[node]){
+                --in[child];
+                if(in[child]==0){
+                    q.push(child);
+                    res.push_back(child);
+                }
+            }
+        }
+        
+        if(res.size()<n)
+            res.clear();
+        
+        return res;
+    }
+};
