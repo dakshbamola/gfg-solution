@@ -1,0 +1,19 @@
+// Panagram Checking
+
+class Solution
+{
+  public:
+    //Function to check if a string is Pangram or not.
+    bool checkPangram (string s) {
+        // your code here
+        set<char> set;
+        for(char c: s){
+            if(c>='a' && c<='z')
+                set.insert(c);
+            if(c>='A' && c<='Z')
+                set.insert(tolower(c));
+        }
+        return set.size()==26;
+    }
+
+};
