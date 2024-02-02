@@ -1,0 +1,22 @@
+// Implement Atoi
+
+class Solution{
+  public:
+    /*You are required to complete this method */
+    int atoi(string s) {
+        //Your code here
+        int sign=1,res=0,i=0;
+        if(s[0]=='-'){ 
+            sign*=-1;
+            i++;
+        }
+        for(;s[i]!='\0';i++){
+            if(s[i]>='0' && s[i]<='9'){
+                res= res*10+ s[i]-'0';
+            }
+            else 
+                return -1;
+        }
+        return sign*res;
+    }
+};
