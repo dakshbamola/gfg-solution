@@ -1,0 +1,19 @@
+// Does array represent Heap
+
+class Solution{
+    public:
+    bool isMaxHeap(int arr[], int n)
+    {
+        // Your code goes here
+        bool res=true;
+        for(int i=0;i<n/2;i++){
+            if(2*i+1<n && arr[i]<arr[2*i+1]){
+                res=false;
+            }
+            if(2*i+2<n && arr[i]<arr[2*i+2]){
+                res=false;
+            }
+        }
+        return res;
+    }
+};
